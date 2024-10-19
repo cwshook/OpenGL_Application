@@ -2,6 +2,7 @@
 #define __APPLICATION_H__
 
 #include <window.h>
+#include <mesh.h>
 
 typedef struct application_s application_t;
 
@@ -10,9 +11,8 @@ struct application_s {
         void (*loop)(application_t *application);
         void (*end)(application_t *application);
 
-        window_t *window;
-
-        bool running;
+        window_t *m_window;
+        mesh_t *m_quad;
 };
 
 application_t *application_new();

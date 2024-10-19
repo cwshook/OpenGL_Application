@@ -10,6 +10,7 @@ typedef struct window_s window_t;
 struct window_s {
         void (*show)(window_t *window);
         void (*hide)(window_t *window);
+        void (*clear)(window_t *window);
         void (*update)(window_t *window);
         void (*toggle_fullscreen)(window_t *window);
         

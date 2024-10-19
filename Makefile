@@ -58,8 +58,8 @@ $(RELEASE_EXE): $(RELEASE_OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS) $(RFLAGS) $(DFLAGS)
 	@echo "Release build completed: $@"
 
-$(DEBUG_DIR)%.c.o: $(SRC_DIR)/%.c
+$(DEBUG_DIR)%.c.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -o $@ -c $< $(GFLAGS) $(DFLAGS)
 
-$(RELEASE_DIR)%.c.o: $(SRC_DIR)/%.c
+$(RELEASE_DIR)%.c.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -o $@ -c $< $(RFLAGS) $(DFLAGS)

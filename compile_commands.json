@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/sizearr.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src//sizearr.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/sizearr.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/sizearr.c.o"
+  }
+]

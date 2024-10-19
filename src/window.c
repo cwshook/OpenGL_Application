@@ -14,6 +14,11 @@ static void window_hide(window_t *window) {
         glfwHideWindow(window->m_handle);
 }
 
+static void window_clear(window_t *window) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(1.0, 0.0, 0.0, 1.0);
+}
+
 static void window_update(window_t *window) {
         glfwSwapBuffers(window->m_handle);
         glfwPollEvents();
@@ -42,6 +47,7 @@ window_t *window_new(int width, int height, char *title, bool fullscreen, bool v
 
         window->show = window_show;
         window->hide = window_hide;
+        window->clear = window_clear;
         window->update = window_update;
         window->toggle_fullscreen = window_toggle_fullscreen;
 
@@ -51,8 +57,8 @@ window_t *window_new(int width, int height, char *title, bool fullscreen, bool v
         window->m_fullscreen = fullscreen;
         window->m_vsync = vsync;
 
-        glfwWindowHint(GLFW_MAXIMIZED, fullscreen);
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
         window->m_handle = glfwCreateWindow(width, height, title, NULL, NULL);
         if (window->m_handle == NULL) {
