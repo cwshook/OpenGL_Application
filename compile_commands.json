@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/main.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src//main.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/main.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/main.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/window.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src//window.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/window.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/window.c.o"
+  }
+]
