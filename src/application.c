@@ -1,5 +1,6 @@
 #include "mesh.h"
 #include "shader.h"
+#include "texture.h"
 #include <application.h>
 
 #include <stdio.h>
@@ -63,6 +64,12 @@ static int application_init(application_t *application) {
                 goto cleanup;
         }
 
+        application->m_texture = texture_new("res/textures/texture.png");
+        if (application->m_texture == NULL) {
+                fprintf(stderr, "[%s : %d @ application_init()] -> texture_new()!\n", __FILE__, __LINE__ - 2);
+                goto cleanup;
+        }
+
         application->m_window->show(application->m_window);
 
         return 0;
@@ -92,6 +99,10 @@ cleanup:
                 shader_destroy(&application->m_shader);
         }
 
+        if (application->m_texture != NULL) {
+                texture_destroy(&application->m_texture);
+        }
+
         return -1;
 }
 
@@ -99,12 +110,16 @@ static void application_loop(application_t *application) {
         while (glfwWindowShouldClose(application->m_window->m_handle) == GLFW_FALSE) {
                 application->m_window->clear(application->m_window);
 
+                application->m_texture->bind(application->m_texture);
+
                 application->m_shader->start(application->m_shader);
 
                 application->m_quad->render(application->m_quad);
 
                 application->m_shader->stop();
                 
+                application->m_texture->unbind();
+
                 application->m_window->update(application->m_window);
         }
 }
@@ -115,6 +130,8 @@ static void application_end(application_t *application) {
         mesh_destroy(&application->m_quad);
 
         shader_destroy(&application->m_shader);
+
+        texture_destroy(&application->m_texture);
 }
 
 application_t *application_new() {

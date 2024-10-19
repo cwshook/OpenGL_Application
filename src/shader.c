@@ -118,6 +118,8 @@ shader_t *shader_new(const char *vertex_filepath, const char *fragment_filepath)
         glAttachShader(shader->m_program_id, shader->m_vertex_id);
         glAttachShader(shader->m_program_id, shader->m_fragment_id);
 
+        glBindAttribLocation(shader->m_program_id, 0, "vertices");
+        glBindAttribLocation(shader->m_program_id, 1, "textures");
         glLinkProgram(shader->m_program_id);
         int success = 0;
         char info_log[INFO_LOG_LENGTH];

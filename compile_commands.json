@@ -10,11 +10,137 @@
       "-g",
       "-DGLEW_NO_GLU",
       "-o",
-      "/home/christian/Documents/src/OpenGL_Application/build/debug/sizearr.c.o",
-      "/home/christian/Documents/src/OpenGL_Application/src//sizearr.c"
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/application.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/application.c"
     ],
     "directory": "/home/christian/Documents/src/OpenGL_Application",
-    "file": "/home/christian/Documents/src/OpenGL_Application/src/sizearr.c",
-    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/sizearr.c.o"
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/application.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/application.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/lenarr.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/lenarr.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/lenarr.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/lenarr.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/main.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/main.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/main.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/main.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/mesh.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/mesh.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/mesh.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/mesh.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/shader.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/shader.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/shader.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/shader.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/stb_image.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/stb_image.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/stb_image.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/stb_image.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/texture.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/texture.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/texture.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/texture.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-I/home/christian/Documents/src/OpenGL_Application/src",
+      "-I/home/christian/Documents/src/OpenGL_Application/dep/include",
+      "-c",
+      "-g",
+      "-DGLEW_NO_GLU",
+      "-o",
+      "/home/christian/Documents/src/OpenGL_Application/build/debug/window.c.o",
+      "/home/christian/Documents/src/OpenGL_Application/src/window.c"
+    ],
+    "directory": "/home/christian/Documents/src/OpenGL_Application",
+    "file": "/home/christian/Documents/src/OpenGL_Application/src/window.c",
+    "output": "/home/christian/Documents/src/OpenGL_Application/build/debug/window.c.o"
   }
 ]
