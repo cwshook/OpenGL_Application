@@ -1,6 +1,5 @@
-#include "lenarr.h"
 #include "mesh.h"
-#include "window.h"
+#include "shader.h"
 #include <application.h>
 
 #include <stdio.h>
@@ -58,6 +57,12 @@ static int application_init(application_t *application) {
                 goto cleanup;
         }
 
+        application->m_shader = shader_new("src/shaders/vertex_shader.glsl", "src/shaders/fragment_shader.glsl");
+        if (application->m_shader == NULL) {
+                fprintf(stderr, "[%s : %d @ application_init()] -> shader_new()!\n", __FILE__, __LINE__ - 2);
+                goto cleanup;
+        }
+
         application->m_window->show(application->m_window);
 
         return 0;
@@ -65,12 +70,10 @@ static int application_init(application_t *application) {
 cleanup:
         if (application->m_window != NULL) {
                 window_destroy(&application->m_window);
-                application->m_window = NULL;
         }
 
         if (quad_vertices_lenarr != NULL) {
                 flenarr_destroy(&quad_vertices_lenarr);
-                quad_textures_lenarr = NULL;
         }
         
         if (quad_textures_lenarr != NULL) {
@@ -79,9 +82,16 @@ cleanup:
 
         if (quad_indices_lenarr != NULL) {
                 ulenarr_destroy(&quad_indices_lenarr);
-                quad_indices_lenarr = NULL;
         }
-        
+
+        if (application->m_quad != NULL) {
+                mesh_destroy(&application->m_quad);
+        }
+
+        if (application->m_shader != NULL) {
+                shader_destroy(&application->m_shader);
+        }
+
         return -1;
 }
 
@@ -89,7 +99,11 @@ static void application_loop(application_t *application) {
         while (glfwWindowShouldClose(application->m_window->m_handle) == GLFW_FALSE) {
                 application->m_window->clear(application->m_window);
 
+                application->m_shader->start(application->m_shader);
+
                 application->m_quad->render(application->m_quad);
+
+                application->m_shader->stop();
                 
                 application->m_window->update(application->m_window);
         }
@@ -99,6 +113,8 @@ static void application_end(application_t *application) {
         window_destroy(&application->m_window);
 
         mesh_destroy(&application->m_quad);
+
+        shader_destroy(&application->m_shader);
 }
 
 application_t *application_new() {

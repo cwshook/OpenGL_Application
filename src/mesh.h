@@ -7,7 +7,10 @@ typedef struct mesh_s mesh_t;
 struct mesh_s {
         void (*render)(mesh_t *mesh);
 
-        unsigned int m_vao, m_vbo, m_tbo, m_ebo;
+        unsigned int m_vao;
+        unsigned int m_vbo;
+        unsigned int m_tbo;
+        unsigned int m_ebo;
         flenarr_t *m_vertices;
         flenarr_t *m_textures;
         ulenarr_t *m_indices;
