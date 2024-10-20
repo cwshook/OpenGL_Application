@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 typedef struct flenarr_s flenarr_t;
+
 struct flenarr_s {
         float *ptr;
         size_t length;

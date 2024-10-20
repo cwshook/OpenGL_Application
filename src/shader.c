@@ -9,8 +9,10 @@
 
 #define INFO_LOG_LENGTH 1024
 
-static void shader_start(shader_t *shader) {
+static void shader_start(shader_t *shader, transform_t *transform) {
         glUseProgram(shader->m_program_id);
+
+        glUniformMatrix4fv(shader->location_model_matrix, 1, GL_FALSE, &transform->m_model_matrix[0][0]);
 }
 
 static void shader_stop(void) {
@@ -131,6 +133,9 @@ shader_t *shader_new(const char *vertex_filepath, const char *fragment_filepath)
 
         glDetachShader(shader->m_program_id, shader->m_vertex_id);
         glDetachShader(shader->m_program_id, shader->m_fragment_id);
+
+        shader->location_model_matrix = glGetUniformLocation(shader->m_program_id, "model_matrix");
+
         return shader;
 
 cleanup:

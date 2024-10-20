@@ -4,6 +4,7 @@
 #include <lenarr.h>
 
 typedef struct mesh_s mesh_t;
+
 struct mesh_s {
         void (*render)(mesh_t *mesh);
 

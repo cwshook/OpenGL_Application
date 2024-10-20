@@ -1,6 +1,7 @@
 #include "mesh.h"
 #include "shader.h"
 #include "texture.h"
+#include "transform.h"
 #include <application.h>
 
 #include <stdio.h>
@@ -15,6 +16,10 @@
 #define QUAD_VERTICES ((float[]){-0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0})
 #define QUAD_TEXTURES ((float[]){0, 0, 0, 1, 1, 1, 1, 0})
 #define QUAD_INDICES ((unsigned int[]){0, 1, 3, 3, 1, 2})
+
+#define QUAD_POSITION ((vec3){-0.2, 0, 0})
+#define QUAD_ROTATION ((vec3){0, 0, 0})
+#define QUAD_SCALE ((vec3){1, 1, 1})
 
 #define LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
 
@@ -58,7 +63,7 @@ static int application_init(application_t *application) {
                 goto cleanup;
         }
 
-        application->m_shader = shader_new("src/shaders/vertex_shader.glsl", "src/shaders/fragment_shader.glsl");
+        application->m_shader = shader_new("res/shaders/vertex_shader.glsl", "res/shaders/fragment_shader.glsl");
         if (application->m_shader == NULL) {
                 fprintf(stderr, "[%s : %d @ application_init()] -> shader_new()!\n", __FILE__, __LINE__ - 2);
                 goto cleanup;
@@ -67,6 +72,12 @@ static int application_init(application_t *application) {
         application->m_texture = texture_new("res/textures/texture.png");
         if (application->m_texture == NULL) {
                 fprintf(stderr, "[%s : %d @ application_init()] -> texture_new()!\n", __FILE__, __LINE__ - 2);
+                goto cleanup;
+        }
+
+        application->m_transform = transform_new(QUAD_POSITION, QUAD_ROTATION, QUAD_SCALE);
+        if (application->m_transform == NULL) {
+                fprintf(stderr, "[%s : %d @ application_init()] -> transform_new()!\n", __FILE__, __LINE__ - 2);
                 goto cleanup;
         }
 
@@ -103,11 +114,17 @@ cleanup:
                 texture_destroy(&application->m_texture);
         }
 
+        if (application->m_transform != NULL) {
+                transform_destroy(&application->m_transform);
+        }
+
         return -1;
 }
 
 static void application_loop(application_t *application) {
         while (glfwWindowShouldClose(application->m_window->m_handle) == GLFW_FALSE) {
+                application->m_transform->update(application->m_transform);
+
                 application->m_window->clear(application->m_window);
 
                 application->m_texture->bind(application->m_texture);
@@ -132,6 +149,8 @@ static void application_end(application_t *application) {
         shader_destroy(&application->m_shader);
 
         texture_destroy(&application->m_texture);
+
+        transform_destroy(&application->m_transform);
 }
 
 application_t *application_new() {
